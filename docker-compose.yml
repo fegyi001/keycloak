@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  postgresql:
+    image: docker.io/bitnami/postgresql:11
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - POSTGRESQL_USERNAME=bn_keycloak
+      - POSTGRESQL_DATABASE=bitnami_keycloak
+    volumes:
+      - 'postgresql_data:/bitnami/postgresql'
+    ports:
+      - "5433:5432"
+
+  keycloak:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        TIMEZONE: ${TIMEZONE}
+    image: keycloak-keycloak
+    depends_on:
+      - postgresql
+    ports:
+      - "80:8080"
+    volumes:
+      - ./theme_dkf:/opt/bitnami/keycloak/themes/theme_dkf
+
+volumes:
+  postgresql_data:
+    driver: local
