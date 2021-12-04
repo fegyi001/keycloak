@@ -18,7 +18,7 @@ docker exec -it 072117bf1711 bash
 # step4: restore db from backup from the container's terminal
 psql -U postgres bitnami_keycloak < /bitnami/postgresql/backup/backup.sql
 
-# step5: exit the continer's terminal
+# step5: exit the container's terminal
 exit
 ```
 
