@@ -35,8 +35,8 @@ services:
       - DB_DATABASE=bitnami_keycloak
 
     volumes:
-      - ./keycloak/theme_dkf:/opt/jboss/keycloak/themes/theme_dkf
-      - ./keycloak/messages:/opt/jboss/keycloak/themes/base/login/messages
+      - "./keycloak/theme_dkf:/opt/jboss/keycloak/themes/theme_dkf"
+      - "./keycloak/messages:/opt/jboss/keycloak/themes/base/login/messages"
 
 volumes:
   postgresql_data:
