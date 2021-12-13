@@ -25,8 +25,18 @@ services:
       - postgresql
     ports:
       - "8080:8080"
+    environment: 
+      - KEYCLOAK_USER=user
+      - KEYCLOAK_PASSWORD=bitnami
+      - DB_VENDOR=postgres
+      - DB_ADDR=postgresql
+      - DB_PORT=5432
+      - DB_USER=bn_keycloak
+      - DB_DATABASE=bitnami_keycloak
+
     volumes:
-      - ./keycloak/theme_dkf:/opt/bitnami/keycloak/themes/theme_dkf
+      - ./keycloak/theme_dkf:/opt/jboss/keycloak/themes/theme_dkf
+      - ./keycloak/messages:/opt/jboss/keycloak/themes/base/login/messages
 
 volumes:
   postgresql_data:

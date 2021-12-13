@@ -1,2 +1,4 @@
-FROM bitnami/keycloak:15
+FROM jboss/keycloak:15.0.2
+
+EXPOSE 8080
 
