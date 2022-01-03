@@ -30,3 +30,7 @@ If you are running into problems you may wish to wipe the database volume from t
 # To run keycloak in daemon mode
 docker-compose up -d keycloak
 ```
+
+## Test user
+
+If you wish to login, use the following user: `user1` with the password `abc456`.
